@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Exercise1</string>
+    <string name="answer">答案是:</string>
+    <string name="calculate">calculate</string>
+</resources>

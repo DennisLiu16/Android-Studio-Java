@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/btn_mora"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="48dp"
+        android:text="@string/btn_mora_str"
+        app:layout_constraintEnd_toEndOf="@+id/tv_main"
+        app:layout_constraintHorizontal_bias="0.37"
+        app:layout_constraintStart_toStartOf="@+id/tv_main"
+        app:layout_constraintTop_toBottomOf="@+id/tv_main_mode" />
+
+    <Button
+        android:id="@+id/btn_guess_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/btn_guess_num_str"
+        app:layout_constraintEnd_toEndOf="@+id/btn_mora"
+        app:layout_constraintHorizontal_bias="0.533"
+        app:layout_constraintStart_toStartOf="@+id/btn_mora"
+        app:layout_constraintTop_toBottomOf="@+id/btn_mora" />
+
+    <TextView
+        android:id="@+id/tv_main_mode"
+        android:layout_width="75dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="100dp"
+        android:text="@string/tv_main_mode_str"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_main"
+        app:layout_constraintHorizontal_bias="0.422"
+        app:layout_constraintStart_toStartOf="@+id/tv_main"
+        app:layout_constraintTop_toBottomOf="@+id/tv_main" />
+
+    <TextView
+        android:id="@+id/tv_main"
+        android:layout_width="120dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginLeft="140dp"
+        android:layout_marginTop="96dp"
+        android:text="@string/tv_main_str"
+        android:textSize="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

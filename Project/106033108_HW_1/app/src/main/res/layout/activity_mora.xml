@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MoraActivity">
+
+    <TextView
+        android:id="@+id/tv_mora_topic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:textSize="50sp"
+        android:text="@string/tv_mora_topic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_mora_sug"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_mora_scissors" />
+
+    <ImageView
+        android:id="@+id/iv_mora_paper"
+        android:layout_width="110dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:contentDescription="@string/iv_mora_paperScript"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_mora_rock"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/iv_mora_rock"
+        app:srcCompat="@drawable/paper" />
+
+    <ImageView
+        android:id="@+id/iv_mora_scissors"
+        android:layout_width="110dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:contentDescription="@string/iv_mora_scissorsScript"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_mora_rock"
+        app:layout_constraintEnd_toStartOf="@+id/iv_mora_rock"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/scissors" />
+
+    <ImageView
+        android:id="@+id/iv_mora_rock"
+        android:layout_width="110dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:contentDescription="@string/iv_mora_rockScript"
+        app:layout_constraintEnd_toStartOf="@+id/iv_mora_paper"
+        app:layout_constraintStart_toEndOf="@+id/iv_mora_scissors"
+        app:layout_constraintTop_toBottomOf="@+id/iv_mora_robot"
+        app:srcCompat="@drawable/rock" />
+
+    <ImageView
+        android:id="@+id/iv_mora_robot"
+        android:layout_width="110dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="60dp"
+        android:contentDescription="@string/iv_mora_robotScript"
+        app:layout_constraintEnd_toEndOf="@+id/tv_mora_topic"
+        app:layout_constraintStart_toStartOf="@+id/tv_mora_topic"
+        app:layout_constraintTop_toBottomOf="@+id/tv_mora_topic"
+        app:srcCompat="@drawable/question_mark" />
+
+    <TextView
+        android:id="@+id/tv_mora_robotLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/tv_mora_robotLabel"
+        app:layout_constraintBottom_toTopOf="@+id/iv_mora_robot"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_mora_userLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/tv_mora_userLabel"
+        app:layout_constraintBottom_toTopOf="@+id/iv_mora_scissors"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

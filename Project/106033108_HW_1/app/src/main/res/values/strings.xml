@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">106033108_HW1</string>
+    <!-- MainPage -->
+    <string name="btn_mora_str">開始猜拳</string>
+    <string name="btn_guess_num_str">開始猜數字</string>
+    <string name="btn_back_str">回主選單</string>
+
+    <string name="tv_main_str">主選單</string>
+    <string name="tv_main_mode_str">請選擇模式</string>
+
+    <!-- MoraPage -->
+    <string name="title_activity_mora">MoraActivity</string>
+    <string name="tv_mora_topic">猜拳</string>
+    <string name="tv_mora_robotLabel">電腦</string>
+    <string name="tv_mora_userLabel">挑戰者</string>
+
+    <string name="iv_mora_rockScript">rock pic</string>
+    <string name="iv_mora_paperScript">paper pic</string>
+    <string name="iv_mora_scissorsScript">scissors pic</string>
+    <string name="iv_mora_robotScript">scissors pic</string>
+    <!-- GuessNumPage -->
+    <string name="tv_guessnum_topic_str">猜數字</string>
+    <string name="tv_guessnum_numbar_str">調整數字</string>
+    <string name="tv_guessnum_biasbar_str">微調</string>
+
+    <string name="et_guessnum_hint_str">請輸入1~99的整數</string>
+
+    <string name="btn_guessnum_start_str">遊戲開始</string>
+    <string name="btn_guessnum_guess_str">確認猜測</string>
+    <string name="btn_guessnum_restart_str">重新開始</string>
+
+
+
+</resources>

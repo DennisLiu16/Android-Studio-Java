@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Exercise2_BMI</string>
+    <string name="name_hint">請輸入您的姓名</string>
+    <string name="weight_hint">請輸入您的體重</string>
+    <string name="height_hint">請輸入您的身高</string>
+    <string name="name">姓名</string>
+    <string name="weight">體重(kg)</string>
+    <string name="height">身高(m)</string>
+    <string name="calculate_bmi">計算BMI</string>
+
+    <string name="underweight_sug">有點太苗條嚕，多吃點吧~</string>
+    <string name="fit_sug">身材剛剛好，請繼續保持</string>
+    <string name="overweight_sug">閣下的心境太寬廣了，少吃多運動唷!</string>
+
+</resources>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GuessNumActivity">
+
+    <TextView
+        android:id="@+id/tv_guessnum_topic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/tv_guessnum_topic_str"
+        android:textSize="45sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_guessnum_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginLeft="72dp"
+        android:layout_marginTop="57dp"
+        android:text="@string/btn_guessnum_start_str"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sb_guessnum_biasbar" />
+
+    <EditText
+        android:id="@+id/et_guessnum_numinput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:inputType="number"
+        android:hint="@string/et_guessnum_hint_str"
+        app:layout_constraintEnd_toEndOf="@+id/tv_guessnum_topic"
+        app:layout_constraintStart_toStartOf="@+id/tv_guessnum_topic"
+        app:layout_constraintTop_toBottomOf="@+id/tv_guessnum_topic" />
+
+    <Button
+        android:id="@+id/btn_guessnum_guess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="57dp"
+        android:text="@string/btn_guessnum_guess_str"
+        app:layout_constraintStart_toEndOf="@+id/btn_guessnum_start"
+        app:layout_constraintTop_toBottomOf="@+id/sb_guessnum_biasbar" />
+
+    <TextView
+        android:id="@+id/tv_guessnum_sug"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginLeft="72dp"
+        android:layout_marginTop="466dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <SeekBar
+        android:id="@+id/sb_guessnum_numbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        app:layout_constraintTop_toBottomOf="@+id/et_guessnum_numinput"
+        tools:layout_editor_absoluteX="173dp" />
+
+    <TextView
+        android:id="@+id/tv_guessnum_numbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_guessnum_numbar_str"
+        app:layout_constraintEnd_toEndOf="@+id/et_guessnum_numinput"
+        app:layout_constraintStart_toStartOf="@+id/et_guessnum_numinput"
+        app:layout_constraintTop_toBottomOf="@+id/sb_guessnum_numbar" />
+
+    <SeekBar
+        android:id="@+id/sb_guessnum_biasbar"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:max="4"
+        app:layout_constraintEnd_toEndOf="@+id/et_guessnum_numinput"
+        app:layout_constraintStart_toStartOf="@+id/et_guessnum_numinput"
+        app:layout_constraintTop_toBottomOf="@+id/tv_guessnum_numbar" />
+
+    <TextView
+        android:id="@+id/tv_guessnum_biasbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_guessnum_biasbar_str"
+        app:layout_constraintEnd_toEndOf="@+id/sb_guessnum_biasbar"
+        app:layout_constraintStart_toStartOf="@+id/sb_guessnum_biasbar"
+        app:layout_constraintTop_toBottomOf="@+id/sb_guessnum_biasbar" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
