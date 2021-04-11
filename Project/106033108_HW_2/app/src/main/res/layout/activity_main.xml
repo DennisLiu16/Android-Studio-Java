@@ -6,32 +6,42 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btn_start"
-
-        android:layout_width="220dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="95dp"
-
-        android:layout_marginLeft="95dp"
-        android:layout_marginEnd="96dp"
-        android:layout_marginRight="96dp"
-        android:background="@drawable/btn_start_shape"
-        android:text="@string/btn_start_str"
-        android:textColor="#FFFFFF"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="423dp" />
 
     <TextView
-        android:id="@+id/tv_timer"
+        android:id="@+id/tv_Maintimer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="94dp"
+        android:layout_marginLeft="94dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="94dp"
+        android:layout_marginRight="94dp"
         android:text="@string/tv_timer_init_str"
         android:textSize="50sp"
-        app:layout_constraintEnd_toEndOf="@+id/btn_start"
-        app:layout_constraintStart_toStartOf="@+id/btn_start"
-        tools:layout_editor_absoluteY="203dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="302dp"
+        android:layout_height="236dp"
+        android:layout_below="@+id/tv_Maintimer"
+        android:layout_marginTop="80dp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_Maintimer"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="@+id/tv_Maintimer"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Maintimer"></RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_SubTimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_Maintimer"
+        app:layout_constraintStart_toStartOf="@+id/tv_Maintimer"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Maintimer" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
