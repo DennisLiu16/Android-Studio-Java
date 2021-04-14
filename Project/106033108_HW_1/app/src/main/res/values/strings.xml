@@ -18,6 +18,7 @@
     <string name="iv_mora_paperScript">paper pic</string>
     <string name="iv_mora_scissorsScript">scissors pic</string>
     <string name="iv_mora_robotScript">scissors pic</string>
+    <string name="btn_mora_go_to_sta">數據統計</string>
     <!-- GuessNumPage -->
     <string name="tv_guessnum_topic_str">猜數字</string>
     <string name="tv_guessnum_numbar_str">調整數字</string>
@@ -29,6 +30,12 @@
     <string name="btn_guessnum_guess_str">確認猜測</string>
     <string name="btn_guessnum_restart_str">重新開始</string>
 
+    <string name="STATISTICS_str">局數統計</string>
+    <string name="STATISTICS_win_str">勝利局數</string>
+    <string name="STATISTICS_lose_str">失敗局數</string>
+    <string name="STATISTICS_draw_str">平手局數</string>
+    <string name="STATISTICS_total_str">總局數</string>
+    <string name="STATISTICS_winRate_str">勝率</string>
 
 
 </resources>

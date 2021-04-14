@@ -103,4 +103,25 @@
         app:layout_constraintBottom_toTopOf="@+id/iv_mora_scissors"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <TextView
+        android:id="@+id/tv_total_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="45dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_mora_sug" />
+
+    <Button
+        android:id="@+id/btn_go_to_statistics"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="21dp"
+        android:layout_marginRight="21dp"
+        android:text="@string/btn_mora_go_to_sta"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_total_num"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_total_num" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
