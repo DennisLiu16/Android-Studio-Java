@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tv_search_topic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_text_Search"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tv_input_topic"
+        app:layout_constraintStart_toStartOf="@+id/tv_input_topic"
+        app:layout_constraintTop_toBottomOf="@+id/tv_input_topic"
+        app:layout_constraintVertical_bias="0.32" />
+
+    <TextView
+        android:id="@+id/tv_result_topic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_text_Result"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tv_input_topic"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_input_topic"
+        app:layout_constraintTop_toBottomOf="@+id/tv_search_topic"
+        app:layout_constraintVertical_bias="0.4" />
+
+    <EditText
+        android:id="@+id/et_input_Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/et_hint_Name"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_input_topic"
+        app:layout_constraintVertical_bias="0.02" />
+
+    <EditText
+        android:id="@+id/et_output_Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/et_hint_Name"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_search_topic"
+        app:layout_constraintVertical_bias="0.02" />
+
+    <EditText
+        android:id="@+id/et_input_PhoneNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/et_hint_PhoneNumber"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/et_input_Name"
+        app:layout_constraintStart_toStartOf="@+id/et_input_Name"
+        app:layout_constraintTop_toBottomOf="@+id/et_input_Name"
+        app:layout_constraintVertical_bias="0.04" />
+
+    <TextView
+        android:id="@+id/tv_input_topic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_text_Input"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.05" />
+
+    <Button
+        android:id="@+id/btn_input_store"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_text_store"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.28"
+        app:layout_constraintStart_toEndOf="@+id/et_input_PhoneNumber"
+        app:layout_constraintTop_toBottomOf="@+id/et_input_PhoneNumber"
+        app:layout_constraintVertical_bias="0.05" />
+
+    <Button
+        android:id="@+id/btn_output_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_text_search"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.28"
+        app:layout_constraintStart_toEndOf="@+id/et_input_PhoneNumber"
+        app:layout_constraintTop_toBottomOf="@+id/et_output_Name"
+        app:layout_constraintVertical_bias="0.05" />
+
+    <Button
+        android:id="@+id/btn_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_text_delete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btn_output_search"
+        app:layout_constraintHorizontal_bias="0.285"
+        app:layout_constraintStart_toStartOf="@+id/btn_output_search"
+        app:layout_constraintTop_toBottomOf="@+id/tv_output_ShowNumber"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <TextView
+        android:id="@+id/tv_output_ShowNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/et_output_Name"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="@+id/et_output_Name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result_topic"
+        app:layout_constraintVertical_bias="0.2" />
+</androidx.constraintlayout.widget.ConstraintLayout>

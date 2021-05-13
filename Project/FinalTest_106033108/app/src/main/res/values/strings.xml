@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">FinalTest_106033108</string>
+
+    <string name="tv_value">0.0</string>
+    <string name="btn_change">change</string>
+    <string name="btn_back">back</string>
+</resources>

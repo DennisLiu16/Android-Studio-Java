@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -63,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
                 }while(true);
 
                 bufFileIn.close();
+
 
             }catch (Exception e){
                 e.printStackTrace();

@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Directory</string>
+
+    <string name="tv_text_Input">新增</string>
+    <string name="tv_text_Search">查詢</string>
+    <string name="tv_text_Result">查詢結果</string>
+
+    <string name="et_hint_Name">請輸入聯絡人姓名</string>
+    <string name="et_hint_PhoneNumber">請輸入聯絡人電話</string>
+
+    <string name="btn_text_store">儲存</string>
+    <string name="btn_text_search">查詢</string>
+    <string name="btn_text_delete">刪除</string>
+
+    <string name="alert_topic_store">警告-儲存</string>
+    <string name="alert_topic_search">警告-查詢</string>
+    <string name="alert_topic_delete">警告-刪除</string>
+
+    <string name="alert_msg_empty_name">聯絡人姓名不得為空</string>
+    <string name="alert_msg_empty_phone">聯絡人電話不得為空</string>
+    <string name="alert_msg_negative_phone">聯絡人電話不得為負數或零</string>
+    <string name="alert_msg_existed_name">聯絡人已存在，是否修改</string>
+    <string name="alert_msg_notFind">查無此聯絡人</string>
+    <string name="alert_msg_deleteEmpty">請先查詢欲刪除聯絡人的姓名</string>
+    <string name="alert_msg_delete">確認刪除</string>
+
+    <string name="toast_msg_store_ok">聯絡人儲存成功</string>
+    <string name="toast_msg_search_ok">已取得電話</string>
+    <string name="toast_msg_delete_ok">刪除成功</string>
+
+
+</resources>
