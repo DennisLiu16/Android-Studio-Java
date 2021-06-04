@@ -7,11 +7,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.app.Activity;
 import android.bluetooth.BluetoothDevice;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
@@ -30,7 +34,8 @@ import java.util.Formatter;
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public class MainActivity extends AppCompatActivity {
 
-    /*init vars*/
+        private static final int REQUEST_MICROPHONE = 1;
+        /*init vars*/
     private TextView tv_record,tv_device_name;
     private ImageView iv_up,iv_down,iv_left,iv_right,iv_stop;
     private Button btn_connect;
@@ -130,6 +135,16 @@ import java.util.Formatter;
         tv_record.setMovementMethod(ScrollingMovementMethod.getInstance());
 
         btSend = new BluetoothSend(this);
+
+        /* sound permission*/
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.RECORD_AUDIO},
+                    REQUEST_MICROPHONE);
+
+        }
     }
 
 
