@@ -13,6 +13,7 @@ import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.app.Activity;
 import android.bluetooth.BluetoothDevice;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -37,12 +38,15 @@ import java.util.Formatter;
     /*my define*/
     private static final int REQUEST_MICROPHONE = 1;
 
-    private static final Integer
+    private static final int GOTO_DEVICELIST = 1;
+    private static final int GOTO_FFT = 2;
+
+    private static final int RC_FFT = 5;
 
    /*init vars*/
     private TextView tv_record,tv_device_name;
     private ImageView iv_up,iv_down,iv_left,iv_right,iv_stop;
-    private Button btn_connect;
+    private Button btn_connect,btn_fft;
     private BluetoothSend btSend;
 
     private char cmd;
@@ -54,8 +58,10 @@ import java.util.Formatter;
     ActivityResultLauncher launcher = registerForActivityResult(new ResultContract(), new ActivityResultCallback<Intent>() {
         @Override
         public void onActivityResult(Intent result) {
+            /*verify result intent type*/
             if(result != null)
             {
+                //TODO add intent name
                 Bundle bundle = result.getExtras();
                 if(bundle == null) return;
                 /*get name and address from return intent, and set name on textview*/
@@ -78,13 +84,22 @@ import java.util.Formatter;
         @NonNull
         @Override
         public Intent createIntent(@NonNull Context context, Integer input) {
-
+            Intent intent = null;
             switch (input)
             {
+                case GOTO_DEVICELIST:
+                    intent = new Intent(MainActivity.this, DeviceList.class);
+                    break;
 
+                case GOTO_FFT:
+                    intent = new Intent(MainActivity.this,fftActivity.class);
+
+                    /*stop the car while changing mode*/
+                    cmd = 'S';
+                    if (btSend!= null) btSend.c = cmd;
+                    break;
             }
             /*this tells which intent to go*/
-            Intent intent = new Intent(MainActivity.this, DeviceList.class);
             return intent;
         }
 
@@ -94,9 +109,16 @@ import java.util.Formatter;
             /*This deal with the resultCode and relative pretreatment*/
             if(resultCode == Activity.RESULT_OK)
             {
+                /*from DeviceList*/
                 /*set btn word to disconnect*/
                 connect_des = MainActivity.this.getString(R.string.btn_disconnect);
                 btn_connect.setText(connect_des);
+                return intent;
+            }
+
+            else if(resultCode == RC_FFT)
+            {
+                /*from FFT*/
                 return intent;
             }
             return null;
@@ -126,8 +148,10 @@ import java.util.Formatter;
         iv_left = findViewById(R.id.iv_left);
         iv_stop = findViewById(R.id.iv_stop);
         btn_connect = findViewById(R.id.btn_connect);
+        btn_fft = findViewById(R.id.btn_fft);
 
         btn_connect.setOnClickListener(btn_click);
+        btn_fft.setOnClickListener(btn_click);
 
         iv_up.setOnClickListener(iv_click);
         iv_down.setOnClickListener(iv_click);
@@ -159,30 +183,35 @@ import java.util.Formatter;
 
 
     private View.OnClickListener btn_click = v -> {
-        /*change to bt device list*/
-        if(connect_des == this.getString(R.string.btn_connect))
-        {
-            /*check btSend not null */
-            if (btSend == null)btSend = new BluetoothSend(this);
 
-            /*launch DeviceList Activity*/
-            launcher.launch(true);
-        }
-        else if(connect_des == this.getString(R.string.btn_disconnect))
-        {
-            /*exit key*/
-            btSend.should_exit = true;
-            btSend = null;
+        /* v == btn_connect*/
+        switch (v.getId()) {
+            case R.id.btn_connect:
+                /*change to bt device list*/
+                if (connect_des == this.getString(R.string.btn_connect)) {
+                    /*check btSend not null */
+                    if (btSend == null) btSend = new BluetoothSend(this);
 
-            /*update btn word to connect*/
-            connect_des = this.getString(R.string.btn_connect);
-            btn_connect.setText(connect_des);
+                    /*launch DeviceList Activity*/
+                    launcher.launch(GOTO_DEVICELIST);
+                } else if (connect_des == this.getString(R.string.btn_disconnect)) {
+                    /*exit key*/
+                    btSend.should_exit = true;
+                    btSend = null;
 
-            /*record disconnect*/
-            tv_record.append("Disconnect   \n");
+                    /*update btn word to connect*/
+                    connect_des = this.getString(R.string.btn_connect);
+                    btn_connect.setText(connect_des);
 
-            /*clean tv name*/
-            tv_device_name.setText("");
+                    /*record disconnect*/
+                    tv_record.append("Disconnect   \n");
+
+                    /*clean tv name*/
+                    tv_device_name.setText("");
+                }
+                break;
+            case R.id.btn_fft:
+                launcher.launch(GOTO_FFT);
         }
 
     };
