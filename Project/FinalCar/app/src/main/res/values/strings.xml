@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">FinalCar</string>
+
+    <string name="btn_connect">連接</string>string>
+    <string name="btn_disconnect">停止</string>string>
+</resources>
