@@ -92,7 +92,7 @@ import java.util.Formatter;
                     break;
 
                 case GOTO_FFT:
-                    intent = new Intent(MainActivity.this,fftActivity.class);
+                    intent = new Intent(MainActivity.this,AnalyzerActivity.class);
 
                     /*stop the car while changing mode*/
                     cmd = 'S';

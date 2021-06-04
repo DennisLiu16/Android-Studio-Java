@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fftActivity">
+    android:layout_height="match_parent">
 
     <Button
         android:id="@+id/btn_fft2main"
@@ -38,4 +37,5 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/tv_maxfreq"
         app:layout_constraintTop_toBottomOf="@+id/tv_maxfreq" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

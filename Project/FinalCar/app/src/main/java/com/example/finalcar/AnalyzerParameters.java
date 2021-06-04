@@ -30,7 +30,7 @@ class AnalyzerParameters {
     int fftLen = 2048;
     int hopLen = 1024;
     double overlapPercent = 50;  // = (1 - hopLen/fftLen) * 100%
-    String wndFuncName;
+    String wndFuncName = "FinalCar";
     int nFFTAverage = 2;
     boolean isAWeighting = true;
     final int BYTE_OF_SAMPLE = 2;
