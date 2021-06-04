@@ -102,6 +102,7 @@ public class AnalyzerActivity extends Activity
         // Read preferences and set corresponding variables
         loadPreferenceForView();
 
+        /*view*/
         analyzerViews = new AnalyzerViews(this);
 
         // travel Views, and attach ClickListener to the views that contain android:tag="select"

@@ -3,4 +3,5 @@
 
     <string name="btn_connect">連接</string>string>
     <string name="btn_disconnect">停止</string>string>
+    <string name="btn_fft">尋找音源</string>string>
 </resources>
