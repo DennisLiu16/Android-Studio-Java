@@ -34,8 +34,12 @@ import java.util.Formatter;
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public class MainActivity extends AppCompatActivity {
 
-        private static final int REQUEST_MICROPHONE = 1;
-        /*init vars*/
+    /*my define*/
+    private static final int REQUEST_MICROPHONE = 1;
+
+    private static final Integer
+
+   /*init vars*/
     private TextView tv_record,tv_device_name;
     private ImageView iv_up,iv_down,iv_left,iv_right,iv_stop;
     private Button btn_connect;
@@ -70,10 +74,15 @@ import java.util.Formatter;
     });
 
     /* The template should be <Input type,Output type> */
-    class ResultContract extends ActivityResultContract<Boolean, Intent> {
+    class ResultContract extends ActivityResultContract<Integer, Intent> {
         @NonNull
         @Override
-        public Intent createIntent(@NonNull Context context, Boolean input) {
+        public Intent createIntent(@NonNull Context context, Integer input) {
+
+            switch (input)
+            {
+
+            }
             /*this tells which intent to go*/
             Intent intent = new Intent(MainActivity.this, DeviceList.class);
             return intent;
