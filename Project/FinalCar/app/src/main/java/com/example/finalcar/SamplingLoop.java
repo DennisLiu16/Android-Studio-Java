@@ -24,6 +24,8 @@ import android.util.Log;
 
 import java.util.Arrays;
 
+import static java.lang.Math.abs;
+
 /**
  * Read a snapshot of audio data at a regular interval, and compute the FFT
  * @author suhler@google.com
@@ -234,6 +236,10 @@ class SamplingLoop extends Thread {
                 activity.maxAmpFreq = stft.maxAmpFreq;
                 activity.maxAmpDB = stft.maxAmpDB;
 
+                activity.AmpDB_523_C = stft.AmpDB_523_C;
+                activity.AmpDB_659_E = stft.AmpDB_659_E;
+                activity.AmpDB_784_G = stft.AmpDB_784_G;
+
                 // get RMS
                 activity.dtRMS = stft.getRMS();
                 activity.dtRMSFromFT = stft.getRMSFromFT();
@@ -243,6 +249,8 @@ class SamplingLoop extends Thread {
         record.stop();
         record.release();
     }
+
+
 
     void setAWeighting(boolean isAWeighting) {
         if (stft != null) {

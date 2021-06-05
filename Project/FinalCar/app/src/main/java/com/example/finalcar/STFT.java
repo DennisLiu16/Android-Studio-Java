@@ -369,6 +369,8 @@ class STFT {
     }
 
     double maxAmpFreq = Double.NaN, maxAmpDB = Double.NaN;
+    double AmpDB_523_C = Double.NaN,AmpDB_659_E  = Double.NaN;
+    double AmpDB_784_G = Double.NaN;
 
     void calculatePeak() {
         getSpectrumAmpDB();
@@ -389,7 +391,8 @@ class STFT {
         // a - b + c = x1
         //         c = x2
         // a + b + c = x3
-        if (sampleRate / fftLen < maxAmpFreq && maxAmpFreq < sampleRate/2 - sampleRate / fftLen) {
+        /*change here ()*/
+        if (sampleRate / fftLen < maxAmpFreq && maxAmpFreq < (sampleRate/2 - sampleRate / fftLen)) {
             int id = (int)(round(maxAmpFreq/sampleRate*fftLen));
             double x1 = spectrumAmpOutDB[id-1];
             double x2 = spectrumAmpOutDB[id];
@@ -404,6 +407,42 @@ class STFT {
                     maxAmpDB = (4*a*c - b*b)/(4*a);
                 }
             }
+
+
+        }
+        get_certain_freq_dB();
+    }
+
+    void get_certain_freq_dB()
+    {
+        double my_freq[] = {523.0,659.0,784.0};
+        double result[] = new double[3];
+        for(int k = 0;k<my_freq.length;k++)
+        {
+            /*calculate certain freq dB*/
+            int i = (int)(round(my_freq[k]/sampleRate*fftLen));
+            result[k] = spectrumAmpOutDB[i];
+            /*adjust*/
+            if(sampleRate / fftLen < my_freq[k] && my_freq[k] < (sampleRate/2 - sampleRate / fftLen))
+            {
+                double x1 = spectrumAmpOutDB[i-1];
+                double x2 = spectrumAmpOutDB[i];
+                double x3 = spectrumAmpOutDB[i+1];
+                double c = x2;
+                double a = (x3+x1)/2 - x2;
+                double b = (x3-x1)/2;
+                if (a < 0) {
+                    double xPeak = -b/(2*a);
+                    if (abs(xPeak) < 1) {
+                        //maxAmpFreq += xPeak * sampleRate / fftLen;
+                        result[k] = (4*a*c - b*b)/(4*a);
+                    }
+                }
+            }
+            /*assign vals*/
+            AmpDB_523_C = result[0];
+            AmpDB_659_E = result[1];
+            AmpDB_784_G = result[2];
         }
     }
 

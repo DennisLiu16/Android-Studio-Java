@@ -89,9 +89,13 @@ public class AnalyzerActivity extends Activity
     private static final int RC_FFT = 5;
 
     private Button btn_fft2main;
-    private TextView tv_maxfreq,tv_maxdB;
+    private TextView tv_maxfreq,tv_maxdB,tv_523_show,tv_659_show,tv_784_show;
     private Handler mHandler = new Handler(Looper.getMainLooper());
     private BluetoothSend btSend = null;
+
+    double AmpDB_523_C;
+    double AmpDB_659_E;
+    double AmpDB_784_G;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -143,6 +147,9 @@ public class AnalyzerActivity extends Activity
 
         tv_maxdB = findViewById(R.id.tv_maxdB);
         tv_maxfreq = findViewById(R.id.tv_maxfreq);
+        tv_523_show = findViewById(R.id.tv_523_show);
+        tv_659_show = findViewById(R.id.tv_659_show);
+        tv_784_show = findViewById(R.id.tv_784_show);
 
         btn_fft2main.setOnClickListener(btn_click);
 
@@ -152,12 +159,16 @@ public class AnalyzerActivity extends Activity
     {
         //TODO Control Law
         // hint : change btSend.c to change cmd
+        // confirm
     }
 
     void update_tv()
     {
-        tv_maxdB.setText(String.valueOf(maxAmpDB));
-        tv_maxfreq.setText(String.valueOf(maxAmpFreq));
+        tv_maxdB.setText(String.format("%.2f",maxAmpDB));
+        tv_maxfreq.setText(String.format("%.2f",maxAmpFreq));
+        tv_523_show.setText(String.format("%.2f",AmpDB_523_C));
+        tv_659_show.setText(String.format("%.2f",AmpDB_659_E));
+        tv_784_show.setText(String.format("%.2f",AmpDB_784_G));
     }
 
     View.OnClickListener btn_click = new View.OnClickListener() {
