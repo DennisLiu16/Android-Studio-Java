@@ -15,7 +15,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FinalCar">
-        <activity android:name=".AnalyzerActivity"></activity>
+        <activity android:name=".AnalyzerActivity"/>
         <activity android:name=".DeviceList" />
         <activity android:name=".MainActivity">
             <intent-filter>

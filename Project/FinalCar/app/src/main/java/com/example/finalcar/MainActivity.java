@@ -33,6 +33,7 @@ import java.util.Formatter;
 
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+
     public class MainActivity extends AppCompatActivity {
 
     /*my define*/
@@ -47,7 +48,8 @@ import java.util.Formatter;
     private TextView tv_record,tv_device_name;
     private ImageView iv_up,iv_down,iv_left,iv_right,iv_stop;
     private Button btn_connect,btn_fft;
-    private BluetoothSend btSend;
+    private static BluetoothSend btSend;
+
 
     private char cmd;
     private char last_cmd;
@@ -281,6 +283,11 @@ import java.util.Formatter;
         int offset = tv_record.getLineCount()*tv_record.getLineHeight();
         if(offset > tv_record.getLineHeight())
             tv_record.scrollTo(0,offset-tv_record.getHeight());
+    }
+
+    public static BluetoothSend getBluetoothSend()
+    {
+        return btSend;
     }
 
 }

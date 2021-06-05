@@ -9,15 +9,18 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.util.Log;
 import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.Serializable;
 import java.util.UUID;
 
-public class BluetoothSend {
+public class BluetoothSend{
     public Context context;
     public BluetoothAdapter btAdapter;
 
@@ -132,4 +135,5 @@ public class BluetoothSend {
 
         }
     }
+
 }

@@ -44,6 +44,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.Message;
 import android.text.method.ScrollingMovementMethod;
 import android.view.MotionEvent;
 import android.view.View;
@@ -61,17 +62,11 @@ import java.util.Formatter;
  * @author suhler@google.com (Stephen Uhler)
  */
 
-/* 5:18
+/* 11:37
  *
  * TODO
- *  1. Update fftActivity by Handler, msg from Sampling Loop
  *  2. Send btSend as var to fftActivity
  *  3. Find the specturm dBA array , and C,D,E freq and get dBA val
- *  4. Send Handler to AnalyzerActivity
- *  5. 合併
- *
- * TODO part
- *  1-1 use msg to update tv
  *
  * */
 
@@ -86,43 +81,77 @@ public class AnalyzerActivity extends Activity
     double dtRMSFromFT = 0;
     double maxAmpDB;
     double maxAmpFreq;
+
+    int loop_rate = 60; //hz
+
     /*my self*/
 
     private static final int RC_FFT = 5;
+
     private Button btn_fft2main;
     private TextView tv_maxfreq,tv_maxdB;
-    private Handler mHandler;
+    private Handler mHandler = new Handler(Looper.getMainLooper());
+    private BluetoothSend btSend = null;
 
-
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_analyzer);
 
         set_event();
+        /*get btSend*/
+        btSend = MainActivity.getBluetoothSend();
+        Intent intent = this.getIntent();
+        /* start fft loop here */
         init();
 
-        /*init params of fft and such things*/
-        //analyzerActivity = new AnalyzerActivity();
-        // start-later analyzerActivity.init();
+
+        /* TODO controller init */
+
+        /* start update loop */
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                update_tv();
+                update_cmd();
+                mHandler.postDelayed(this,1000/loop_rate);
+            }
+        },1000/loop_rate);
 
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(samplingThread == null)
+        {
+            samplingThread.start();
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        exit();
     }
 
     void set_event()
     {
         btn_fft2main = findViewById(R.id.btn_fft2main);
+
         tv_maxdB = findViewById(R.id.tv_maxdB);
         tv_maxfreq = findViewById(R.id.tv_maxfreq);
 
         btn_fft2main.setOnClickListener(btn_click);
-
 
     }
 
     void update_cmd()
     {
         //TODO Control Law
+        // hint : change btSend.c to change cmd
     }
 
     void update_tv()
@@ -134,10 +163,14 @@ public class AnalyzerActivity extends Activity
     View.OnClickListener btn_click = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            exit();
-            Intent intent = new Intent();
-            setResult(RC_FFT,intent);
-            finish();
+            switch(v.getId()) {
+                case R.id.btn_fft2main:
+                    exit();
+                    Intent intent = new Intent();
+                    setResult(RC_FFT, intent);
+                    finish();
+                    break;
+            }
         }
     };
 
@@ -148,16 +181,15 @@ public class AnalyzerActivity extends Activity
 
         samplingThread = new SamplingLoop(this, analyzerParam);
         samplingThread.start();
+
+        /* set Timer to update UI*/
     }
 
     public void exit()
     {
         if(samplingThread!=null)
             samplingThread.finish();
-    }
-
-    private class UpdateThread extends Thread
-    {
 
     }
+
 }

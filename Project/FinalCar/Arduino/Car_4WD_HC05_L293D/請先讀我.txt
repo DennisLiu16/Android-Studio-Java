@@ -1,0 +1,5 @@
+﻿[檔案說明]
+1. APP 為 Android 手機 APP
+2. Library 為相關函式庫，請先複製到 Arduino 的 libraries 中
+3. Manual 為組裝說明檔
+4. SampleCode 中的 car_4wd_hc05_293D 為藍芽車範例
