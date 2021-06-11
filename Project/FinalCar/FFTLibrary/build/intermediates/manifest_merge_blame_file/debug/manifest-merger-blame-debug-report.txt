@@ -5,8 +5,8 @@
 5    android:versionName="1.0" > <!-- <uses-sdk android:minSdkVersion="7" /> -->
 6    <uses-sdk
 7        android:minSdkVersion="9"
-7-->D:\Dennis\University\Course\Main\Microcomputer\Android-Studio-Java\Project\FinalCar\FFTLibrary\src\main\AndroidManifest.xml
+7-->E:\Git\Android-Studio-Java\Project\FinalCar\FFTLibrary\src\main\AndroidManifest.xml
 8        android:targetSdkVersion="27" />
-8-->D:\Dennis\University\Course\Main\Microcomputer\Android-Studio-Java\Project\FinalCar\FFTLibrary\src\main\AndroidManifest.xml
+8-->E:\Git\Android-Studio-Java\Project\FinalCar\FFTLibrary\src\main\AndroidManifest.xml
 9
 10</manifest>

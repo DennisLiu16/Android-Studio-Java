@@ -18,13 +18,15 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.Serializable;
+import java.nio.charset.Charset;
 import java.util.UUID;
 
 public class BluetoothSend{
     public Context context;
     public BluetoothAdapter btAdapter;
-
+    public String Data = "";
     public char c =  'S';
+
     private static final int SUCCESS_CONNECT = 0;
     public static final int REQUEST_ENABLE_BT = 3;
     private static final UUID MY_UUID_SECURE = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
@@ -114,7 +116,8 @@ public class BluetoothSend{
         public void run() {
             while (!should_exit) {
                 try {
-                    mmOutStream.write((byte) c);
+                    String DataAppend = Data + "\n";
+                    mmOutStream.write(DataAppend.getBytes(Charset.forName("UTF-8")));
                     mmOutStream.flush();
                     Log.d("connected: ", "sending");
                     try {

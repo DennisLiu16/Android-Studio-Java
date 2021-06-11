@@ -160,6 +160,8 @@ public class AnalyzerActivity extends Activity
         //TODO Control Law
         // hint : change btSend.c to change cmd
         // confirm
+        btSend.Data = Double.toString(AmpDB_523_C);
+
     }
 
     void update_tv()
